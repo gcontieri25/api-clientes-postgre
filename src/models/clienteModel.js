@@ -34,16 +34,16 @@ async function buscarPorId(id) {
 // RETORNO: Promise com o cliente criado (incluindo o ID)
 // ============================================================
 async function criar(dados) {
-  const { nome, cpf, telefone, email, datanasc, rua, numeroCasa, bairro } = dados;
+  const { nome, cpf, telefone, email, datanasc, rua, numerocasa, bairro } = dados;
 
   const sql = `
-    INSERT INTO clientes (nome, cpf, telefone, email, datanasc, rua, numeroCasa, bairro)
+    INSERT INTO clientes (nome, cpf, telefone, email, datanasc, rua, numerocasa, bairro)
     VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
     RETURNING *
   `;
 
   const result = await pool.query(sql, [
-    nome, cpf, telefone, email, datanasc, rua, numeroCasa, bairro
+    nome, cpf, telefone, email, datanasc, rua, numerocasa, bairro
   ]);
 
   return result.rows[0];
@@ -56,17 +56,17 @@ async function criar(dados) {
 // RETORNO: Promise com cliente atualizado ou null
 // ============================================================
 async function atualizar(id, dados) {
-  const { nome, cpf, telefone, email, datanasc, rua, numeroCasa, bairro } = dados;
+  const { nome, cpf, telefone, email, datanasc, rua, numerocasa, bairro } = dados;
 
   const sql = `
     UPDATE clientes
-    SET nome = $1, cpf = $2, telefone = $3, email = $4, datanasc = $5, rua = $6, numeroCasa = $7, bairro = $8
+    SET nome = $1, cpf = $2, telefone = $3, email = $4, datanasc = $5, rua = $6, numerocasa = $7, bairro = $8
     WHERE id = $9
     RETURNING *
   `;
 
   const result = await pool.query(sql, [
-    nome, cpf, telefone, email, datanasc, rua, numeroCasa, bairro, id
+    nome, cpf, telefone, email, datanasc, rua, numerocasa, bairro, id
   ]);
 
   return result.rows[0] || null;

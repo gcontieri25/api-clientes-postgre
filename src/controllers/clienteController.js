@@ -77,18 +77,18 @@ async function criar(req, res) {
 async function atualizar(req, res) {
   try {
     const id = parseInt(req.params.id);
-    const { nome, cpf, telefone, email, datanasc, rua, numeroCasa, bairro } = req.body;
+    const { nome, cpf, telefone, email, datanasc, rua, numerocasa, bairro } = req.body;
 
     if (isNaN(id)) {
       return res.status(400).json({ mensagem: 'ID inválido' });
     }
 
-    if (!nome || !cpf || !telefone || !email || !datanasc || !rua || !numeroCasa || !bairro) {
+    if (!nome || !cpf || !telefone || !email || !datanasc || !rua || !numerocasa || !bairro) {
       return res.status(400).json({ mensagem: 'Todos os campos são obrigatórios' });
     }
 
     const clienteAtualizado = await ClienteModel.atualizar(id, {
-      nome, cpf, telefone, email, datanasc, rua, numeroCasa, bairro
+      nome, cpf, telefone, email, datanasc, rua, numerocasa, bairro
     });
 
     if (clienteAtualizado) {

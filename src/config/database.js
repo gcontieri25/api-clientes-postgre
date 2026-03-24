@@ -44,8 +44,8 @@ const criarTabela = async () => {
       email       VARCHAR(255)   NOT NULL UNIQUE,
       datanasc    DATE           NOT NULL,
       rua         VARCHAR(255)   NOT NULL,
-      numeroCasa  VARCHAR(10)    NOT NULL,
-      bairro      VARCHAR(100)   NOT NULL,
+      numerocasa  VARCHAR(10)    NOT NULL,
+      bairro      VARCHAR(100)   NOT NULL
     )
   `;
   
